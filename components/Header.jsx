@@ -4,9 +4,10 @@ const Header = () => {
   const css = {
     fontWeight: 700,
     fontSize: "20px",
+    color: "#0863d2",
   };
   const boxcss = {
-    backgroundColor: "#F7EED3",
+    backgroundColor: "#D4F6FF",
     width: "100vw",
   };
   return (
@@ -21,7 +22,7 @@ const Header = () => {
           margin: "0 auto",
         }}
       >
-        <span style={css}>☕IT COFFEE☕</span>
+        <span style={css}>IT COFFEE</span>
         <div style={{ display: "flex", gap: "30px", fontWeight: 700 }}>
           <Link href="/menu">
             <span>MENU</span>
@@ -37,6 +38,9 @@ const Header = () => {
           </Link>
           <Link href="/news">
             <span>NEWS</span>
+          </Link>
+          <Link href="/goods">
+            <span>Goods</span>
           </Link>
         </div>
       </nav>

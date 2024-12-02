@@ -25,9 +25,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header></Header>
+        <main style={{ width: "100vw" }}>{children}</main>
 
-        {children}
-        <footer>푸터임</footer>
+        {/* <footer>푸터임</footer> */}
       </body>
     </html>
   );
