@@ -1,29 +1,44 @@
 import Link from "next/link";
 
 const Header = () => {
-  const css = {
-    fontWeight: 700,
-    fontSize: "20px",
-    color: "#0863d2",
-  };
   const boxcss = {
-    backgroundColor: "#D4F6FF",
+    backgroundColor: "#f3f8fe",
     width: "100vw",
+  };
+  const navcss = {
+    padding: "20px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    maxWidth: "1040px",
+    margin: "0 auto",
+  };
+
+  const btncss = {
+    backgroundColor: "#0064de",
+    border: "none",
+    borderRadius: "50px",
+    color: "white",
+    padding: "5px 15px",
+    marginRight: "5px",
   };
   return (
     <header style={boxcss}>
-      <nav
-        style={{
-          padding: "20px",
-          display: "flex",
-          alianItems: "center",
-          justifyContent: "space-between",
-          maxWidth: "1040px",
-          margin: "0 auto",
-        }}
-      >
-        <span style={css}>IT COFFEE</span>
-        <div style={{ display: "flex", gap: "30px", fontWeight: 700 }}>
+      <nav style={navcss}>
+        <Link href="/">
+          <img
+            style={{ width: "150px" }}
+            src="https://www.yogurtworld.co.kr/images/header_logo.png"
+            alt=""
+          />
+        </Link>
+        <div
+          style={{
+            display: "flex",
+            gap: "30px",
+            fontWeight: 500,
+          }}
+        >
           <Link href="/menu">
             <span>MENU</span>
           </Link>
@@ -42,6 +57,10 @@ const Header = () => {
           <Link href="/goods">
             <span>Goods</span>
           </Link>
+        </div>
+        <div>
+          <button style={btncss}>점주님 공간</button>
+          <button style={btncss}>가맹 문의</button>
         </div>
       </nav>
     </header>

@@ -30,8 +30,8 @@ const Page = async () => {
           }}
         >
           {data.map((v, i) => (
-            <Link href={`/menu/${i}`}>
-              <Menu key={i} img={v.image} menuname={v.title} />
+            <Link key={i} href={`/menu/${i}`}>
+              <Menu img={v.image} menuname={v.title} />
             </Link>
           ))}
         </div>

@@ -1,7 +1,11 @@
 import Menu from "@/components/Menu";
 import Link from "next/link";
 
-const Page = () => {
+const Page = async () => {
+  const data = await fetch("https://dummyjson.com/products")
+    .then((res) => res.json())
+    .then((v) => v.products);
+
   return (
     <div
       style={{
@@ -12,26 +16,11 @@ const Page = () => {
         gap: "10px",
       }}
     >
-      {/* [id] */}
-
-      <Link href={"/goods/1"}>
-        <Menu
-          menuname="아슈크림"
-          img="https://i.namu.wiki/i/kzMFcl3KBAAY-owhXpMK2GJ4yxLDV-uQMiJzk3T1ELNo9AVIDGbmQ2CVcmUBSzfNi3T6CSFRpDmDrft7P7pxoA.webp"
-        />
-      </Link>
-      <Link href={"/goods/2"}>
-        <Menu
-          menuname="와플"
-          img="https://i.namu.wiki/i/c-pI0gdR59-TiOqhOvttsFSYMKS1h-kgrH9_r51CPzUH5RgDWPHB3_WSZkg1c2d2NvillD55b4Mq7Br3npqihg.webp"
-        />
-      </Link>
-      <Link href={"/goods/3"}>
-        <Menu
-          menuname="케이크"
-          img="https://i.namu.wiki/i/sP0VOvMOCyYzjPuXM7BDJRyE3mXqdK9bC2o5D1bT6VSxX1IGzUVpLKa8oIWxvWCzpV5d_4kHCMR2Jct3jwFILw.webp"
-        />
-      </Link>
+      {data.map((v, i) => (
+        <Link key={i} href={`goods/${v.id}`}>
+          <Menu menuname={v.title} img={v.thumbnail} />
+        </Link>
+      ))}
     </div>
   );
 };
